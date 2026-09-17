@@ -3,290 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SITE MAIS LIXO DA INTERNET v4.0</title>
+  <title>skyzao</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      user-select: none;
-      -webkit-user-select: none;
     }
 
     body {
-      background-color: #1e1e1e;
-      color: #f5f5f7;
-      font-family: "Comic Sans MS", -apple-system, sans-serif;
-      overflow-x: hidden;
-      min-height: 250vh;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Rastro RGB Futurista */
-    .rgb-particle {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      animation: fadeOut 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      box-shadow: 0 0 12px currentColor;
-    }
-
-    @keyframes fadeOut {
-      0% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
-    }
-
-    /* Marquee piscante estilo 1990 no topo */
-    .trash-banner {
-      background: #ff0055;
-      color: #fff;
-      font-weight: bold;
-      padding: 10px;
-      text-align: center;
-      font-size: 1.1rem;
-      animation: blink 0.3s infinite alternate;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 5px 20px rgba(255, 0, 85, 0.5);
-    }
-
-    @keyframes blink {
-      0% { background: #ff0055; color: #fff; }
-      100% { background: #00f0ff; color: #000; }
-    }
-
-    /* Primeira Seção */
-    .hero {
-      height: 90vh;
+      background-color: #161617;
+      color: #e3e3e3;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-      background: radial-gradient(circle at 50% 30%, #2d2d30 0%, #1e1e1e 70%);
     }
 
-    .hero h1 {
-      font-size: 5rem;
-      font-weight: 700;
-      background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .container {
+      max-width: 620px;
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    header {
+      margin-bottom: 32px;
+      border-bottom: 1px solid #2d2d2e;
+      padding-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #f5f5f7;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: #86868b;
+      margin-top: 4px;
+    }
+
+    .content p {
+      font-size: 1.05rem;
+      color: #cccccc;
       margin-bottom: 20px;
     }
 
-    .hero p {
-      font-size: 1.25rem;
-      color: #86868b;
-      max-width: 600px;
-      line-height: 1.5;
-    }
-
-    /* Botão Fujão de Robux */
-    .troll-btn {
-      margin-top: 30px;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bbf, #ff00c8, #ff0000);
-      background-size: 400%;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      position: absolute;
-      transition: top 0.1s ease, left 0.1s ease;
-      animation: glowing 20s linear infinite;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-    }
-
-    @keyframes glowing {
-      0% { background-position: 0 0; }
-      50% { background-position: 400% 0; }
-      100% { background-position: 0 0; }
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 20px;
-      color: #86868b;
-      font-size: 0.9rem;
-      animation: bounce 2s infinite;
-    }
-
-    /* Segunda Seção */
-    .troll-section {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      background-color: #161618;
-    }
-
-    .macos-card {
-      background: rgba(30, 30, 32, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 18px;
-      padding: 50px 40px;
-      max-width: 650px;
-      width: 100%;
-      text-align: center;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .macos-card p {
-      font-size: 1.5rem;
+    .content p strong {
       color: #f5f5f7;
-      line-height: 1.6;
     }
 
-    .timer-box {
-      margin-top: 25px;
-      font-family: monospace;
-      color: #00f0ff;
-      font-size: 1.1rem;
-      border: 1px dashed #00f0ff;
-      padding: 10px;
-      border-radius: 8px;
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #2d2d2e;
+      font-size: 0.85rem;
+      color: #6e6e73;
+      display: flex;
+      justify-content: space-between;
     }
 
-    /* Kernel Panic Fake Overlay */
-    #kernelPanic {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #000;
-      color: #ff0000;
-      font-family: monospace;
-      padding: 40px;
-      z-index: 100000;
-      box-sizing: border-box;
+    a {
+      color: #2997ff;
+      text-decoration: none;
     }
 
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-8px); }
-      60% { transform: translateY(-4px); }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <div class="trash-banner">
-    ⚠️ AVISO: ESTE SITE CONTÉM 0% DE CONTEÚDO ÚTIL E 100% DE LIXO DIGITAL ⚠️
-  </div>
+  <div class="container">
+    <header>
+      <h1>skyzao</h1>
+      <div class="meta">notas, projetos e coisas aleatórias</div>
+    </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Hello World!</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    
-    <button class="troll-btn" id="runawayBtn">CLIQUE AQUI PARA GANHAR 1000 ROBUX GRÁTIS</button>
-
-    <div class="scroll-hint">↓ Role para baixo se tiver coragem ↓</div>
-  </section>
-
-  <!-- Troll Section -->
-  <section class="troll-section">
-    <div class="macos-card">
-      <p>Por que voce está aqui? Este site é uma merda digital, ou seja, só vai atualizar quando o dono quiser.</p>
+    <main class="content">
+      <p><strong>Fala camarada, o que te incentivou a vir no meu site?</strong></p>
       
-      <div class="timer-box">
-        Próxima atualização em: <span id="timer">99999 dias, 23:59:59</span>
-      </div>
-    </div>
-  </section>
+      <p>Apenas um espaço estático rodando no GitHub Pages pra registrar algumas ideias de vez em quando.</p>
 
-  <!-- Fake Kernel Panic Screen -->
-  <div id="kernelPanic">
-    <h1>CRITICAL SYSTEM ERROR: GPU_EXPLOSION_DETECTED</h1>
-    <p style="margin-top:20px;">A sua GPU não aguentou o peso do rastro RGB e pegou fogo.</p>
-    <p style="margin-top:10px;">Pressione F5 para fingir que nada aconteceu ou jogue seu PC no lixo.</p>
-    <p style="margin-top:30px; color: #fff;">Error Code: 0x80070005_BURRO_PRA_CARALHO</p>
+      <p>Se você chegou até aqui por acaso, fique à vontade. O site é simples porque o objetivo é só esse mesmo.</p>
+    </main>
+
+    <footer>
+      <span> skyzao</span>
+      <span>hosted on github pages</span>
+    </footer>
   </div>
-
-  <script>
-    // 1. Mouse RGB
-    let hue = 0;
-    document.addEventListener('mousemove', function(e) {
-      hue = (hue + 5) % 360;
-      const particle = document.createElement('div');
-      particle.className = 'rgb-particle';
-      particle.style.left = e.clientX + 'px';
-      particle.style.top = e.clientY + 'px';
-      particle.style.color = `hsl(${hue}, 100%, 60%)`;
-      particle.style.backgroundColor = `hsl(${hue}, 100%, 60%)`;
-      document.body.appendChild(particle);
-      setTimeout(() => particle.remove(), 600);
-    });
-
-    // 2. Botão de Robux que Foge do Mouse
-    const runawayBtn = document.getElementById('runawayBtn');
-    runawayBtn.addEventListener('mouseover', function() {
-      const x = Math.random() * (window.innerWidth - runawayBtn.clientWidth);
-      const y = Math.random() * (window.innerHeight - runawayBtn.clientHeight);
-      runawayBtn.style.left = `${x}px`;
-      runawayBtn.style.top = `${y}px`;
-    });
-
-    // 3. Som de erro ao clicar em qualquer lugar e Apito Bip
-    document.addEventListener('click', function() {
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(150, audioCtx.currentTime); // Som grave de erro
-      gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.15);
-    });
-
-    // 4. Bloqueios de DevTools + Tela de Kernel Panic Fake se apertar teclas
-    function xingamento() {
-      alert("vai tomar no cu");
-    }
-
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-      xingamento();
-    });
-
-    document.addEventListener('keydown', function(e) {
-      // Se tentar abrir DevTools
-      if (
-        e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) ||
-        (e.ctrlKey && ['U','u','S','s'].includes(e.key)) ||
-        (e.metaKey && e.altKey && ['I','i','J','j','U','u'].includes(e.key))
-      ) {
-        e.preventDefault();
-        e.stopPropagation();
-        xingamento();
-      } else {
-        // Se pressionar QUALQUER OUTRA TECLA, aciona o Kernel Panic Fake!
-        document.getElementById('kernelPanic').style.display = 'block';
-      }
-    });
-
-    // 5. Mensagens no Console / Sources
-    console.log("%cTENHA CERTEZA DE QUE VC VAI COLAR ALGO AQUI.", "color: red; font-size: 24px; font-weight: bold;");
-    console.log("%cSe vc vai colar algo aqui, parabens vc e burro para caralho de acreditar em um codigo do Discord que vai te prometer 1000 robux de graça.", "color: yellow; font-size: 16px; font-weight: bold; background: black; padding: 10px;");
-  </script>
 
 </body>
 </html>
