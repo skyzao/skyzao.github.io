@@ -3,153 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>skyz@newpage~</title>
+  <title>Hello World!</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      cursor: default;
     }
 
     body {
-      background-color: #0d1117;
-      color: #3fb950;
-      font-family: "Courier New", Courier, monospace;
+      background-color: #1e1e1e;
+      color: #f5f5f7;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+      overflow-x: hidden;
+      min-height: 200vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Rastro RGB Futurista */
+    .rgb-particle {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      animation: fadeOut 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      box-shadow: 0 0 12px currentColor;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.1);
+      }
+    }
+
+    /* Primeira Seção */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      background: radial-gradient(circle at 50% 30%, #2d2d30 0%, #1e1e1e 70%);
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15));
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #86868b;
+      max-width: 600px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      color: #86868b;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      animation: bounce 2s infinite;
+    }
+
+    /* Segunda Seção */
+    .troll-section {
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
       padding: 20px;
+      background-color: #161618;
     }
 
-    .terminal-window {
+    .macos-card {
+      background: rgba(30, 30, 32, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 50px 40px;
+      max-width: 650px;
       width: 100%;
-      max-width: 700px;
-      background-color: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      overflow: hidden;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
 
-    .terminal-header {
-      background-color: #21262d;
-      padding: 10px 15px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #30363d;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 8px;
-    }
-
-    .button {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .close { background-color: #ff5f56; }
-    .minimize { background-color: #ffbd2e; }
-    .maximize { background-color: #27c93f; }
-
-    .title {
-      color: #8b949e;
-      font-size: 13px;
-      margin: 0 auto;
-      font-weight: bold;
-    }
-
-    .terminal-body {
-      padding: 20px;
-      font-size: 15px;
+    .macos-card p {
+      font-size: 1.5rem;
+      color: #f5f5f7;
       line-height: 1.6;
+      font-weight: 500;
     }
 
-    .prompt-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+      60% { transform: translateY(-4px); }
     }
 
-    .prompt {
-      color: #58a6ff;
-      margin-right: 10px;
-      font-weight: bold;
-    }
-
-    .input-line {
-      display: flex;
-      flex: 1;
-      align-items: center;
-    }
-
-    input {
-      background: transparent;
-      border: none;
-      color: #f0f6fc;
-      font-family: inherit;
-      font-size: 15px;
-      outline: none;
-      width: 100%;
-    }
-
-    .response {
-      color: #ff7b72;
-      margin-top: 10px;
-      font-weight: bold;
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+      .macos-card p { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="terminal-window">
-    <div class="terminal-header">
-      <div class="buttons">
-        <div class="button close"></div>
-        <div class="button minimize"></div>
-        <div class="button maximize"></div>
-      </div>
-      <div class="title">skyz@github2~</div>
+  <!-- Topo -->
+  <section class="hero">
+    <h1>Hello World!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="scroll-hint">↓ Role para baixo ↓</div>
+  </section>
+
+  <!-- Final ao rolar -->
+  <section class="troll-section">
+    <div class="macos-card">
+      <p>Por que voce está aqui? Este site é uma merda digital, ou seja, só vai atualizar quando o dono quiser.</p>
     </div>
-
-    <div class="terminal-body" id="terminal">
-      <div class="prompt-line">
-        <span class="prompt">skyzao@github ~ %</span>
-        <span>Tente digitar algo aqui</span>
-      </div>
-
-      <div class="prompt-line" style="margin-top: 10px;">
-        <span class="prompt">skyzao@a ~ %</span>
-        <div class="input-line">
-          <input type="text" id="cmdInput" autofocus placeholder="" autocomplete="off" spellcheck="false">
-        </div>
-      </div>
-
-      <div id="output"></div>
-    </div>
-  </div>
+  </section>
 
   <script>
-    const input = document.getElementById('cmdInput');
-    const output = document.getElementById('output');
+    // Mouse RGB
+    let hue = 0;
+    document.addEventListener('mousemove', function(e) {
+      hue = (hue + 5) % 360;
+      
+      const particle = document.createElement('div');
+      particle.className = 'rgb-particle';
+      particle.style.left = e.clientX + 'px';
+      particle.style.top = e.clientY + 'px';
+      particle.style.color = `hsl(${hue}, 100%, 60%)`;
+      particle.style.backgroundColor = `hsl(${hue}, 100%, 60%)`;
+      
+      document.body.appendChild(particle);
 
-    input.addEventListener('keydown', function(event) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        
-        // Exibe a mensagem de resposta
-        output.innerHTML = '<div class="response">Parabéns por tentar, mas isto não funciona.</div>';
-        
-        // Limpa o campo de texto
-        input.value = '';
-      }
+      setTimeout(() => {
+        particle.remove();
+      }, 600);
     });
-
-    // Mantém o foco no input mesmo se clicar fora
-    document.addEventListener('click', () => input.focus());
   </script>
 
 </body>
