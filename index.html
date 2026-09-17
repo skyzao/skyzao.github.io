@@ -1,1 +1,156 @@
-<h1>skyzao77's Page</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>skyz@newpage~</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0d1117;
+      color: #3fb950;
+      font-family: "Courier New", Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .terminal-window {
+      width: 100%;
+      max-width: 700px;
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      background-color: #21262d;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .close { background-color: #ff5f56; }
+    .minimize { background-color: #ffbd2e; }
+    .maximize { background-color: #27c93f; }
+
+    .title {
+      color: #8b949e;
+      font-size: 13px;
+      margin: 0 auto;
+      font-weight: bold;
+    }
+
+    .terminal-body {
+      padding: 20px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .prompt-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .prompt {
+      color: #58a6ff;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .input-line {
+      display: flex;
+      flex: 1;
+      align-items: center;
+    }
+
+    input {
+      background: transparent;
+      border: none;
+      color: #f0f6fc;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      width: 100%;
+    }
+
+    .response {
+      color: #ff7b72;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <div class="buttons">
+        <div class="button close"></div>
+        <div class="button minimize"></div>
+        <div class="button maximize"></div>
+      </div>
+      <div class="title">skyz@github2~</div>
+    </div>
+
+    <div class="terminal-body" id="terminal">
+      <div class="prompt-line">
+        <span class="prompt">skyzao@github ~ %</span>
+        <span>Tente digitar algo aqui</span>
+      </div>
+
+      <div class="prompt-line" style="margin-top: 10px;">
+        <span class="prompt">skyzao@a ~ %</span>
+        <div class="input-line">
+          <input type="text" id="cmdInput" autofocus placeholder="" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById('cmdInput');
+    const output = document.getElementById('output');
+
+    input.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        
+        // Exibe a mensagem de resposta
+        output.innerHTML = '<div class="response">Parabéns por tentar, mas isto não funciona.</div>';
+        
+        // Limpa o campo de texto
+        input.value = '';
+      }
+    });
+
+    // Mantém o foco no input mesmo se clicar fora
+    document.addEventListener('click', () => input.focus());
+  </script>
+
+</body>
+</html>
